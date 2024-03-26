@@ -141,7 +141,7 @@ open class Permission {
      You can overide it if your permission need open custom page.
      */
     @available(iOSApplicationExtension, unavailable)
-    open func openSettingPage() {
+    public static func openSettingPage() {
         DispatchQueue.main.async {
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
             if UIApplication.shared.canOpenURL(settingsUrl) {
