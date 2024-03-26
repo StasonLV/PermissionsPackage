@@ -31,16 +31,31 @@ public class CameraPermission: Permission {
         }
     }
     
-    public override func request(completion: @escaping () -> Void) {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { finished in
+//    public override func request(completion: @escaping () -> Void) {
+//        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { finished in
+//            if finished {
+//                DispatchQueue.main.async {
+//                    completion()
+//                }
+//            } else {
+//                print("Доступ не предоставлен")
+//            }
+//        })
+//    }
+    public func request(completion: @escaping (Bool) -> Bool) {
+        AVCaptureDevice.requestAccess(for: .video) { finished in
             if finished {
                 DispatchQueue.main.async {
-                    completion()
+                    let success = completion(true)
+                    // Выполните дополнительные действия на основе значения success, если необходимо
                 }
             } else {
-                print("Доступ не предоставлен")
+                DispatchQueue.main.async {
+                    let success = completion(false)
+                    // Выполните дополнительные действия на основе значения success, если необходимо
+                }
             }
-        })
+        }
     }
 }
 
