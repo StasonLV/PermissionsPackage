@@ -6,14 +6,13 @@ import AVFoundation
 import UIKit
 
 //@available(iOS 11.0, macCatalyst 14.0, *)
-//public extension Permission {
-//    
-//    static var camera: CameraPermission {
-//        return CameraPermission()
-//    }
-//}
+public extension Permission {
+    
+    static var camera: CameraPermission {
+        return CameraPermission()
+    }
+}
 
-//@available(iOS 11.0, macCatalyst 14.0, *)
 public class CameraPermission: Permission {
     
     open override var kind: Permission.Kind { .camera }
@@ -36,6 +35,37 @@ public class CameraPermission: Permission {
                 completion()
             }
         })
+    }
+}
+
+public extension Permission {
+    
+    static var microphone: MicrophonePermission {
+        return MicrophonePermission()
+    }
+}
+
+public class MicrophonePermission: Permission {
+    
+    open override var kind: Permission.Kind { .microphone }
+    open var usageDescriptionKey: String? { "NSMicrophoneUsageDescription" }
+    
+    public override var status: Permission.Status {
+        switch  AVAudioSession.sharedInstance().recordPermission {
+        case .granted: return .authorized
+        case .denied: return .denied
+        case .undetermined: return .notDetermined
+        @unknown default: return .denied
+        }
+    }
+    
+    public override func request(completion: @escaping () -> Void) {
+        AVAudioSession.sharedInstance().requestRecordPermission {
+            granted in
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
     }
 }
 
