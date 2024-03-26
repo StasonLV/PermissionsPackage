@@ -5,6 +5,7 @@ import Foundation
 import AVFoundation
 import UIKit
 import LocalAuthentication
+import Photos
 
 //@available(iOS 11.0, macCatalyst 14.0, *)
 public extension Permission {
@@ -158,6 +159,46 @@ public class NotificationPermission: Permission {
                 completion()
             }
         }
+    }
+}
+
+public extension Permission {
+    
+    static var photoLibrary: PhotoLibraryPermission {
+        return PhotoLibraryPermission()
+    }
+}
+
+public class PhotoLibraryPermission: Permission {
+    
+    open override var kind: Permission.Kind { .photoLibrary }
+    
+    open var fullAccessUsageDescriptionKey: String? {
+        "NSPhotoLibraryUsageDescription"
+    }
+    
+    open var addingOnlyUsageDescriptionKey: String? {
+        "NSPhotoLibraryAddUsageDescription"
+    }
+    
+    public override var status: Permission.Status {
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized: return .authorized
+        case .denied: return .denied
+        case .notDetermined: return .notDetermined
+        case .restricted: return .denied
+        case .limited: return .authorized
+        @unknown default: return .denied
+        }
+    }
+    
+    public override func request(completion: @escaping () -> Void) {
+        PHPhotoLibrary.requestAuthorization({
+            finished in
+            DispatchQueue.main.async {
+                completion()
+            }
+        })
     }
 }
 
