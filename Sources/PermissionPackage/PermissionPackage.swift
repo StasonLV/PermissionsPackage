@@ -32,10 +32,13 @@ public class CameraPermission: Permission {
     }
     
     public override func request(completion: @escaping () -> Void) {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: {
-            finished in
-            DispatchQueue.main.async {
-                completion()
+        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { finished in
+            if finished {
+                DispatchQueue.main.async {
+                    completion()
+                }
+            } else {
+                print("Доступ не предоставлен")
             }
         })
     }
