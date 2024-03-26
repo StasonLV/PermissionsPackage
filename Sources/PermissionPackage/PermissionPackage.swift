@@ -4,6 +4,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import LocalAuthentication
 
 //@available(iOS 11.0, macCatalyst 14.0, *)
 public extension Permission {
@@ -11,6 +12,7 @@ public extension Permission {
     static var camera: CameraPermission {
         return CameraPermission()
     }
+    
 }
 
 public class CameraPermission: Permission {
@@ -43,6 +45,7 @@ public extension Permission {
     static var microphone: MicrophonePermission {
         return MicrophonePermission()
     }
+    
 }
 
 public class MicrophonePermission: Permission {
@@ -68,6 +71,50 @@ public class MicrophonePermission: Permission {
         }
     }
 }
+
+public extension Permission {
+    
+    static var faceID: FaceIDPermission {
+        return FaceIDPermission()
+    }
+}
+
+public class FaceIDPermission: Permission {
+    
+    open override var kind: Permission.Kind { .faceID }
+    open var usageDescriptionKey: String? { "NSFaceIDUsageDescription" }
+    
+    public override var status: Permission.Status {
+        let context = LAContext()
+        
+        var error: NSError?
+        let isReady = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        
+        guard context.biometryType == .faceID else {
+            return .notSupported
+        }
+        
+        switch error?.code {
+        case nil where isReady:
+            return .notDetermined
+        case LAError.biometryNotAvailable.rawValue:
+            return .denied
+        case LAError.biometryNotEnrolled.rawValue:
+            return .notSupported
+        default:
+            return .notSupported
+        }
+    }
+    
+    public override func request(completion: @escaping () -> Void) {
+        LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: " ") { _, _ in
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+    }
+}
+
 
 open class Permission {
     
