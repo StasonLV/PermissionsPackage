@@ -31,42 +31,42 @@ public class CameraPermission: Permission {
         }
     }
     
-    public override func request(completion: @escaping () -> Void) {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { finished in
-            if finished {
-                DispatchQueue.main.async {
-                    completion()
-                }
-            } else {
-                print("Доступ не предоставлен")
-            }
-        })
-    }
-//    public func request(completion: @escaping (Bool) -> Bool) {
-//        AVCaptureDevice.requestAccess(for: .video) { finished in
+//    public override func request(completion: @escaping () -> Void) {
+//        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { finished in
 //            if finished {
 //                DispatchQueue.main.async {
-//                    let success = completion(true)
-//                    // Выполните дополнительные действия на основе значения success, если необходимо
+//                    completion()
 //                }
 //            } else {
-//                DispatchQueue.main.async {
-//                    let success = completion(false)
-//                    // Выполните дополнительные действия на основе значения success, если необходимо
-//                }
+//                print("Доступ не предоставлен")
 //            }
-//        }
+//        })
 //    }
-//    public func request(completion: ((Bool) -> Void)? = nil) {
-//        AVCaptureDevice.requestAccess(for: .video) { finished in
-//            if let completion = completion {
-//                DispatchQueue.main.async {
-//                    completion(finished)
-//                    // Выполняйте дополнительные действия на основе значения finished, если это необходимо
-//                }
-//            }
-//        }
-//    }
+    public func request(completion: @escaping (Bool) -> Bool) {
+        AVCaptureDevice.requestAccess(for: .video) { finished in
+            if finished {
+                DispatchQueue.main.async {
+                    let success = completion(true)
+                    // Выполните дополнительные действия на основе значения success, если необходимо
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let success = completion(false)
+                    // Выполните дополнительные действия на основе значения success, если необходимо
+                }
+            }
+        }
+    }
+    public func request(completion: ((Bool) -> Void)? = nil) {
+        AVCaptureDevice.requestAccess(for: .video) { finished in
+            if let completion = completion {
+                DispatchQueue.main.async {
+                    completion(finished)
+                    // Выполняйте дополнительные действия на основе значения finished, если это необходимо
+                }
+            }
+        }
+    }
 }
 
 public extension Permission {
