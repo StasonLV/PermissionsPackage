@@ -57,6 +57,16 @@ public class CameraPermission: Permission {
             }
         }
     }
+    public func request(completion: ((Bool) -> Bool)? = nil) {
+        AVCaptureDevice.requestAccess(for: .video) { finished in
+            if let completion = completion {
+                DispatchQueue.main.async {
+                    let success = completion(finished)
+                    // Выполняйте дополнительные действия на основе значения success, если это необходимо
+                }
+            }
+        }
+    }
 }
 
 public extension Permission {
