@@ -6,7 +6,7 @@
 //
 
 #if PERMISSIONSPACKAGE_SPM
-import PermissionPackage
+import PermissionsPackage
 #endif
 
 #if os(iOS) && PERMISSIONSPACKAGE_CAMERA
