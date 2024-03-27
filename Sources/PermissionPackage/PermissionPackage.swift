@@ -42,21 +42,21 @@ public class CameraPermission: Permission {
 //            }
 //        })
 //    }
-    public func request(completion: @escaping (Bool) -> Bool) {
-        AVCaptureDevice.requestAccess(for: .video) { finished in
-            if finished {
-                DispatchQueue.main.async {
-                    let success = completion(true)
-                    // Выполните дополнительные действия на основе значения success, если необходимо
-                }
-            } else {
-                DispatchQueue.main.async {
-                    let success = completion(false)
-                    // Выполните дополнительные действия на основе значения success, если необходимо
-                }
-            }
-        }
-    }
+//    public func request(completion: @escaping (Bool) -> Bool) {
+//        AVCaptureDevice.requestAccess(for: .video) { finished in
+//            if finished {
+//                DispatchQueue.main.async {
+//                    let success = completion(true)
+//                    // Выполните дополнительные действия на основе значения success, если необходимо
+//                }
+//            } else {
+//                DispatchQueue.main.async {
+//                    let success = completion(false)
+//                    // Выполните дополнительные действия на основе значения success, если необходимо
+//                }
+//            }
+//        }
+//    }
     public func request(completion: ((Bool) -> Void)? = nil) {
         AVCaptureDevice.requestAccess(for: .video) { finished in
             if let completion = completion {
