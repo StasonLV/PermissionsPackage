@@ -20,7 +20,23 @@ let package = Package(
         .library(
             name: "CameraPackage",
             targets: ["CameraPackage"]
-        )
+        ),
+        .library(
+            name: "MicPackage",
+            targets: ["MicPackage"]
+        ),
+        .library(
+            name: "FaceIDPackage",
+            targets: ["FaceIDPackage"]
+        ),
+        .library(
+            name: "NotificationPackage",
+            targets: ["NotificationPackage"]
+        ),
+        .library(
+            name: "ContactsPackage",
+            targets: ["ContactsPackage"]
+        ),
     ],
     
     
@@ -40,6 +56,42 @@ let package = Package(
             swiftSettings: [
                 .define("PERMISSIONSPACKAGE_SPM"),
                 .define("PERMISSIONSPACKAGE_CAMERA")
+            ]
+        ),
+        .target(
+            name: "MicPackage",
+            dependencies: [.target(name: "PermissionsPackage")],
+            path: "Sources/MicPermission",
+            swiftSettings: [
+                .define("PERMISSIONSPACKAGE_SPM"),
+                .define("PERMISSIONSPACKAGE_MIC")
+            ]
+        ),
+        .target(
+            name: "FaceIDPackage",
+            dependencies: [.target(name: "PermissionsPackage")],
+            path: "Sources/FaceIDPermission",
+            swiftSettings: [
+                .define("PERMISSIONSPACKAGE_SPM"),
+                .define("PERMISSIONSPACKAGE_FACEID")
+            ]
+        ),
+        .target(
+            name: "NotificationPackage",
+            dependencies: [.target(name: "PermissionsPackage")],
+            path: "Sources/NotificationPermission",
+            swiftSettings: [
+                .define("PERMISSIONSPACKAGE_SPM"),
+                .define("PERMISSIONSPACKAGE_NOTIFICATION")
+            ]
+        ),
+        .target(
+            name: "ContactsPackage",
+            dependencies: [.target(name: "PermissionsPackage")],
+            path: "Sources/ContactsPermission",
+            swiftSettings: [
+                .define("PERMISSIONSPACKAGE_SPM"),
+                .define("PERMISSIONSPACKAGE_CONTACTS")
             ]
         )
     ]
