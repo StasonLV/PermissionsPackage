@@ -14,7 +14,6 @@ import Foundation
 import AVFoundation
 
 public extension Permission {
-    
     static var camera: CameraPermission {
         return CameraPermission()
     }
@@ -40,7 +39,6 @@ public class CameraPermission: Permission {
             if let completion = completion {
                 DispatchQueue.main.async {
                     completion(finished)
-                    // Выполняйте дополнительные действия на основе значения finished, если это необходимо
                 }
             }
         }
