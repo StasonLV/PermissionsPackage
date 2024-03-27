@@ -4,20 +4,45 @@
 import PackageDescription
 
 let package = Package(
-    name: "PermissionPackage",
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "PermissionPackage",
-            targets: ["PermissionPackage"]),
+    name: "PermissionsPackage",
+    platforms: [
+        .macOS(.v10_13),
+        .iOS(.v12),
+        .tvOS(.v12),
+        .watchOS(.v6)
     ],
+    
+    products: [
+        .library(
+            name: "PermissionsPackage",
+            targets: ["PermissionsPackage"]
+        ),
+        .library(
+            name: "CameraPackage",
+            targets: ["CameraPackage"]
+        )
+    ],
+    
+    
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "PermissionPackage"),
-        .testTarget(
-            name: "PermissionPackageTests",
-            dependencies: ["PermissionPackage"]),
+            name: "PermissionsPackage",
+            dependencies: [],
+            path: "Sources/PermissionsPackage",
+            swiftSettings: [
+                .define("PERMISSIONSPACKAGE_SPM")
+            ]
+        ),
+        .target(
+            name: "CameraPackage",
+            dependencies: [.target(name: "PermissionsPackage")],
+            path: "Sources/CameraPermission",
+            swiftSettings: [
+                .define("PERMISSIONSPACKAGE_SPM"),
+                .define("PERMISSIONSPACKAGE_CAMERA")
+            ]
+        )
     ]
 )
+
+
