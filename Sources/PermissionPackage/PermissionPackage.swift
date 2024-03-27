@@ -57,11 +57,11 @@ public class CameraPermission: Permission {
             }
         }
     }
-    public func request(completion: ((Bool) -> Bool)? = nil) {
+    public func request(completion: ((Bool) -> Void)? = nil) {
         AVCaptureDevice.requestAccess(for: .video) { finished in
             if let completion = completion {
                 DispatchQueue.main.async {
-                    let success = completion(finished)
+                    let success: Void = completion(finished)
                     // Выполняйте дополнительные действия на основе значения success, если это необходимо
                 }
             }
