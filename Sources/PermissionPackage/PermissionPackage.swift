@@ -61,8 +61,8 @@ public class CameraPermission: Permission {
         AVCaptureDevice.requestAccess(for: .video) { finished in
             if let completion = completion {
                 DispatchQueue.main.async {
-                    let success: Void = completion(finished)
-                    // Выполняйте дополнительные действия на основе значения success, если это необходимо
+                    completion(finished)
+                    // Выполняйте дополнительные действия на основе значения finished, если это необходимо
                 }
             }
         }
