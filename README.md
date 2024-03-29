@@ -17,20 +17,20 @@
 - [Установка](#установка)
     - [Swift Package Manager](#swift-package-manager)
     - [Модульность](#модульность)
-- [Использование](#request-permission)
-    - [Request Permission](#request-permission)
-    - [Get Status Permission](#get-status-permission)
+- [Использование](#использование)
+    - [Запрос разрешений](#запрос-разрешений)
+    - [Проверка статуса разрешений](#проверка-статуса-разрешений)
 
 ### Реализованные доступы
 
 | Icon |  Permission | Key for `Info.plist` | Get Status | Make Request |
 | :--: | :---------- | :------------------- | :--------: | :----------: |
-| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="38"> | Уведомления\n(Notification) | | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="38"> | Notification | | ✅ | ✅ |
 | <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="38"> | Camera | NSCameraUsageDescription | ✅ | ✅ |
-| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/617500b5-cd41-471f-b132-5072a089d4f2" width="38"> | Contacts | NSContactsUsageDescription | ✅ | ✅ |
-| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/0d1d47c1-7d04-4b53-b741-bd99536f6274" width="38"> | FaceID | NSFaceIDUsageDescription | ☑️ | ✅ |
 | <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/99a8791e-b13d-4d6d-ad96-b9c43d256463" width="38"> | Microphone | NSMicrophoneUsageDescription | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/0d1d47c1-7d04-4b53-b741-bd99536f6274" width="38"> | FaceID | NSFaceIDUsageDescription | ☑️ | ✅ |
 | <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/df6a957f-fe29-4022-944b-c2d7be628b92" width="38"> | Photo Library | NSPhotoLibraryUsageDescription, NSPhotoLibraryAddUsageDescription | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/617500b5-cd41-471f-b132-5072a089d4f2" width="38"> | Contacts | NSContactsUsageDescription | ✅ | ✅ |
 
 ## Установка
 
@@ -69,7 +69,9 @@ and choose valid targets.
 > [!WARNING]
 > Import only the permissions you really need.
 
-## Запрос разрешения
+#Использование
+
+## Запрос разрешений
 
 ```swift
 import PermissionsPackage
@@ -80,7 +82,7 @@ Permission.notification.request {
 }
 ```
 
-## Проверить статус разрешения
+## Проверка статуса разрешений
 
 ```swift
 import PermissionsPackage
