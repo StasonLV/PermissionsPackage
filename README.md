@@ -21,17 +21,6 @@ API для запросов разрешений и получения стат�
     <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/siri.png" width="38">
 </p>
 
-### iOS Dev Community
-
-<p float="left">
-    <a href="https://twitter.com/i/communities/1730194338489987403">
-        <img src="https://cdn.sparrowcode.io/github/badges/x-community.png?version=1" height="52">
-    </a>
-    <a href="#apps-using">
-        <img src="https://cdn.sparrowcode.io/github/badges/download-on-the-appstore.png?version=4" height="52">
-    </a>
-</p>
-
 ## Navigate
 
 - [Permissions](#permissions)
@@ -73,6 +62,8 @@ Ready to use on iOS 11+. Supports iOS, tvOS. Working with `UIKit` and `SwiftUI`.
 
 ### Swift Package Manager
 
+<details><summary>Установка SPM</summary>
+
 In Xcode go to Project -> Your Project Name -> `Package Dependencies` -> Tap *Plus*. Insert url:
 
 ```
@@ -90,44 +81,12 @@ dependencies: [
 
 and choose valid targets.
 
-### CocoaPods:
-
-This is an outdated way. I advise you to use [SPM](#swift-package-manager). However, I will continue to support Cocoapods for some time.
-
-<details><summary>Cocoapods Installation</summary>
-
-[CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-pod 'PermissionsKit/NotificationPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-```
-
-Due to Apple's new policy regarding permission access you need to specifically define what kind of permissions you want to access using subspecs.
-
-```ruby
-pod 'PermissionsKit/CameraPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/ContactsPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/CalendarPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/PhotoLibraryPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/NotificationPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/MicrophonePermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/RemindersPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/SpeechRecognizerPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/LocationWhenInUsePermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/LocationAlwaysPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/MotionPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/MediaLibraryPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/BluetoothPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/TrackingPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/FaceIDPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/SiriPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-pod 'PermissionsKit/HealthPermission', :git => 'https://github.com/sparrowcode/PermissionsKit'
-```
 </details>
 
-## Why Modules
+## Модульность
 
-If put all code to one package and compile it, Apple Review Team will see a lot of calls to permissions API and ask you provide reason why you really need it permissions. Modules allow compile only really using code parts. Just select only which you need.
+Если вы поместите весь код в один пакет и скомпилируете его, команда проверки Apple увидит множество вызовов API разрешений и попросит вас объяснить, почему вы действительно нуждаетесь в этих разрешениях. 
+Модули позволяют компилировать только те части кода, которые действительно используются.
 
 > [!WARNING]
 > Import only the permissions you really need.
@@ -174,21 +133,3 @@ If you use xliff localization export, keys will be create automatically. If you 
 "NSCameraUsageDescription" = "Here description of usage camera";
 ```
 
-## Apps Using
-
-<p float="left">
-    <a href="https://apps.apple.com/app/id1487937127"><img src="https://cdn.sparrowcode.io/github/apps-using/id1487937127.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1624477055"><img src="https://cdn.sparrowcode.io/github/apps-using/id1624477055.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1625641322"><img src="https://cdn.sparrowcode.io/github/apps-using/id1625641322.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1625641322"><img src="https://cdn.sparrowcode.io/github/apps-using/id6449774982.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id875280793"><img src="https://cdn.sparrowcode.io/github/apps-using/id875280793.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id743843090"><img src="https://cdn.sparrowcode.io/github/apps-using/id743843090.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id537070378"><img src="https://cdn.sparrowcode.io/github/apps-using/id537070378.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1617055933"><img src="https://cdn.sparrowcode.io/github/apps-using/id1617055933.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1596657751"><img src="https://cdn.sparrowcode.io/github/apps-using/id1596657751.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1459483980"><img src="https://cdn.sparrowcode.io/github/apps-using/id1459483980.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1544749600"><img src="https://cdn.sparrowcode.io/github/apps-using/id1544749600.png" height="65"></a>
-    <a href="https://apps.apple.com/app/id6452079114"><img src="https://cdn.sparrowcode.io/github/apps-using/id6452079114.png" height="65"></a>
-</p>
-
-If you use a `PermissionsKit`, add your app via Pull Request.
