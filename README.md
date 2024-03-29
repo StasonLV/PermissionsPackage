@@ -69,9 +69,9 @@ and choose valid targets.
 > [!WARNING]
 > Import only the permissions you really need.
 
-#Использование
+##Использование
 
-## Запрос разрешений
+### Запрос разрешений
 
 ```swift
 import PermissionsPackage
@@ -82,7 +82,7 @@ Permission.notification.request {
 }
 ```
 
-## Проверка статуса разрешений
+### Проверка статуса разрешений
 
 ```swift
 import PermissionsPackage
@@ -97,12 +97,3 @@ let authorized = Permission.notification.authorized
 
 > [!NOTE]
 > Do not use the description as the name of the key. Xcode can't build this.
-
-### Localisation
-
-If you use xliff localization export, keys will be create automatically. If you prefer do the localization file manually, you need to create `InfoPlist.strings`, select languages on the right side menu and add keys as keys in plist-file. See:
-
-```
-"NSCameraUsageDescription" = "Here description of usage camera";
-```
-
