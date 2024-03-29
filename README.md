@@ -1,6 +1,6 @@
 # PermissionsPackage
 
-API для запросов разрешений и получения статусов на устройстве — доступные `.authorized`, `.denied` & `.notDetermined`.
+Унифицированный API для запросов разрешений и получения статусов на устройстве — доступные `.authorized`, `.denied` & `.notDetermined`.
 
 <p float="left">
     <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/camera.png" width="38">
@@ -26,13 +26,10 @@ API для запросов разрешений и получения стат�
 - [Permissions](#permissions)
 - [Installation](#installation)
     - [Swift Package Manager](#swift-package-manager)
-    - [CocoaPods](#cocoapods)
-    - [Why Modules](#why-modules)
+    - [Модульность](#модульность)
 - [Usage](#request-permission)
     - [Request Permission](#request-permission)
     - [Get Status Permission](#get-status-permission)
-- [Keys in Info.plist](#keys-in-infoplist)
-    - [Localisations](#localisation)
 - [Apps Using](#apps-using)
 
 ### Permissions
