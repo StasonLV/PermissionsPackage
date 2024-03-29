@@ -1,6 +1,6 @@
 # PermissionsPackage
 
-Унифицированный API для запросов разрешений и получения статусов на устройстве.
+Унифицированный API для запросов разрешений и получения статусов разрешений на устройстве.
 
 <p float="left">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="40">
@@ -43,22 +43,13 @@ Ready to use on iOS 11+. Supports iOS, tvOS. Working with `UIKit` and `SwiftUI`.
 
 <details><summary>Установка SPM</summary>
 
-In Xcode go to Project -> Your Project Name -> `Package Dependencies` -> Tap *Plus*. Insert url:
+В Xcode откройте Project -> `Package Dependencies` -> В нижнем левом углу нажмите *Плюс* и введите `url`:
 
 ```
 https://github.com/StasonLV/PermissionsPackage
 ```
 
-Next, choose the permissions that you need. But don't add all of them, because apple will reject app.
-Or adding it to the `dependencies` of your `Package.swift`:
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/StasonLV/PermissionsPackage", .upToNextMajor(from: "10.0.1"))
-]
-```
-
-and choose valid targets.
+После того как пакет найден, нажмите `Add Package` в правом нижнем углу и откроется контекстное меню с выбором необходимых разрешений. Выберете из списка.
 
 </details>
 
@@ -68,33 +59,72 @@ and choose valid targets.
 > Пакет позволяет раздельный импорт модулей для разных API.
 
 Пакет разбит на отдельные модули под каждый запрашиваемый пермишн. 
+
 Такая реализация вызвана тем, что при импорте единого пакета со всеми запросами Apple review team будет доступна информация о множественном обращении к API пермишенов и при ревью приложения могут задать дополнительные вопросы.
 Модуляризированная структура позволяет использовать только те запросы и разрешения, которые необходимы.
 
-Если вы поместите весь код в один пакет и скомпилируете его, команда проверки Apple увидит множество вызовов API разрешений и попросит вас объяснить, почему вы действительно нуждаетесь в этих разрешениях. 
-Модули позволяют компилировать только те части кода, которые действительно используются.
-
 ## Использование
 
-### Запрос разрешений
+Импорт модулей
 
 ```swift
 import PermissionsPackage
-import NotificationPermission
+import CameraPackage
+```
 
-Permission.notification.request {
-    
-}
+### Запрос разрешений
+
+### Простой запрос без обработки
+
+```swift
+import PermissionsPackage
+import CameraPackage
+
+    Permission.camera.request()
+```
+
+### Запрос разрешения с обработчиком в колбэке
+
+```swift
+import PermissionsPackage
+import CameraPackage
+
+    Permission.camera.request { granted in
+        if granted {
+            //Обработка кейса, когда доступ разрешен
+        } else {
+            //Обработка кейса, когда доступ не разрешен
+        }
+    }
 ```
 
 ### Проверка статуса разрешений
 
 ```swift
 import PermissionsPackage
-import NotificationPermission
+import CameraPackage
 
-let authorized = Permission.notification.authorized
+    let granted = Permission.notification.authorized
+    if granted {
+
+    } else {
+
+    }
 ```
 
-> [!NOTE]
-> Do not use the description as the name of the key. Xcode can't build this.
+### Повторный запрос разрешения
+Дефолтное поведение системы запрещает многократный вызов нативного запроса пермишенов, поэтому реализован метод повторного запроса. 
+В метод передается тип пермишена для актуального наполнения `alert.message`. 
+
+При тапе, пользователя направляет в настройки по `URL` для разрешения доступа к переданному в метод API.
+
+```swift
+import PermissionsPackage
+import CameraPackage
+
+    @objc private func askCameraPermission() {
+        if Permission.camera.status != .authorized {
+            Permission.openAlertSettingPage(for: Permission.Kind.camera)
+        }
+    }
+```
