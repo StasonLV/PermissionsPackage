@@ -52,10 +52,6 @@ open class Permission {
         preconditionFailure("This method must be overridden.")
     }
     
-    open func request(completion: ((Bool) -> Void)? = nil) {
-        preconditionFailure("This method must be overridden.")
-    }
-    
     open var canBePresentWithCustomInterface: Bool {
         return true
     }
