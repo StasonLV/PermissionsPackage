@@ -3,11 +3,11 @@
 Унифицированный API для запросов разрешений и получения статусов на устройстве.
 
 <p float="left">
-    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/0d1d47c1-7d04-4b53-b741-bd99536f6274" width="40">
-    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="40">
-    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/df6a957f-fe29-4022-944b-c2d7be628b92" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="40">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/99a8791e-b13d-4d6d-ad96-b9c43d256463" width="40">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/df6a957f-fe29-4022-944b-c2d7be628b92" width="40">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/0d1d47c1-7d04-4b53-b741-bd99536f6274" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/617500b5-cd41-471f-b132-5072a089d4f2" width="40">
 </p>
 
@@ -22,6 +22,9 @@
     - [Проверка статуса разрешений](#проверка-статуса-разрешений)
 
 ## Реализованные доступы
+
+> [!WARNING]
+> Для использования необходимо добавить в файл `Info.plist` соответствующие пары `[Key : Value]`. Ключи указаны в таблице, описания должны содержать описание задачи для которой будет использоваться то или иное API.
 
 | Иконка |  Permission | Ключ для `Info.plist` | Получение статуса | Запрос разрешение |
 | :--: | :---------- | :------------------- | :--------: | :----------: |
@@ -90,10 +93,6 @@ import NotificationPermission
 
 let authorized = Permission.notification.authorized
 ```
-
-> [!WARNING]
-> For FaceID permission no way detect if request `.authorized` or `.notDetermined` accurate. Status `.denied` detect well. For now for both states return `.notDetermined`. 
-
 
 > [!NOTE]
 > Do not use the description as the name of the key. Xcode can't build this.
