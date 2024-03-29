@@ -1,6 +1,7 @@
 # PermissionsPackage
 
 Унифицированный API для запросов разрешений и получения статусов на устройстве — доступные `.authorized`, `.denied` & `.notDetermined`.
+![MacOS Big Sur Illustration](https://github.com/StasonLV/PermissionsPackage/assets/98527464/f78124ea-9808-46c1-9ec7-ad1ddfd12837)
 
 <p float="left">
     <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/camera.png" width="38">
