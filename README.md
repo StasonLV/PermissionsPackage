@@ -23,7 +23,7 @@
 
 ## Реализованные доступы
 
-|      |  Permission | Ключ для `Info.plist` | Получение статуса | Запрос разрешение |
+| Иконка |  Permission | Ключ для `Info.plist` | Получение статуса | Запрос разрешение |
 | :--: | :---------- | :------------------- | :--------: | :----------: |
 | <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="38"> | Notification | | ✅ | ✅ |
 | <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="38"> | Camera | NSCameraUsageDescription | ✅ | ✅ |
