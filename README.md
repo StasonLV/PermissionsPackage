@@ -2,7 +2,8 @@
 
 Унифицированный API для запросов разрешений и получения статусов на устройстве.
 
-<p float="left">
+<p float="center">
+        <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/2400c009-037f-4241-b636-1971a19869ef" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/df6a957f-fe29-4022-944b-c2d7be628b92" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="40">
