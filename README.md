@@ -46,9 +46,7 @@ Ready to use on iOS 11+. Supports iOS, tvOS. Working with `UIKit` and `SwiftUI`.
 In Xcode go to Project -> Your Project Name -> `Package Dependencies` -> Tap *Plus*. Insert url:
 
 ```
-
 https://github.com/StasonLV/PermissionsPackage
-
 ```
 
 Next, choose the permissions that you need. But don't add all of them, because apple will reject app.
@@ -66,11 +64,15 @@ and choose valid targets.
 
 ## Модульность
 
+> [!NOTE]
+> Пакет позволяет раздельный импорт модулей для разных API.
+
+Пакет разбит на отдельные модули под каждый запрашиваемый пермишн. 
+Такая реализация вызвана тем, что при импорте единого пакета со всеми запросами Apple review team будет доступна информация о множественном обращении к API пермишенов и при ревью приложения могут задать дополнительные вопросы.
+Модуляризированная структура позволяет использовать только те запросы и разрешения, которые необходимы.
+
 Если вы поместите весь код в один пакет и скомпилируете его, команда проверки Apple увидит множество вызовов API разрешений и попросит вас объяснить, почему вы действительно нуждаетесь в этих разрешениях. 
 Модули позволяют компилировать только те части кода, которые действительно используются.
-
-> [!WARNING]
-> Import only the permissions you really need.
 
 ## Использование
 
