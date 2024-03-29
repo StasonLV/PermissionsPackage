@@ -80,7 +80,7 @@ import CameraPackage
 import PermissionsPackage
 import CameraPackage
 
-    Permission.camera.request()
+Permission.camera.request()
 ```
 
 ### Запрос разрешения с обработчиком в колбэке
@@ -89,13 +89,13 @@ import CameraPackage
 import PermissionsPackage
 import CameraPackage
 
-    Permission.camera.request { granted in
-        if granted {
-            //Обработка кейса, когда доступ разрешен
-        } else {
-            //Обработка кейса, когда доступ не разрешен
-        }
+Permission.camera.request { granted in
+    if granted {
+        //Обработка кейса, когда доступ разрешен
+    } else {
+        //Обработка кейса, когда доступ не разрешен
     }
+}
 ```
 
 ### Проверка статуса разрешений
@@ -104,12 +104,13 @@ import CameraPackage
 import PermissionsPackage
 import CameraPackage
 
-    let granted = Permission.notification.authorized
-    if granted {
-
-    } else {
-
-    }
+let granted = Permission.camera.authorized
+    
+if granted {
+    //Обработка кейса, когда доступ разрешен
+} else {
+    //Обработка кейса, когда доступ не разрешен
+}
 ```
 
 ### Повторный запрос разрешения
@@ -122,9 +123,9 @@ import CameraPackage
 import PermissionsPackage
 import CameraPackage
 
-    @objc private func askCameraPermission() {
-        if Permission.camera.status != .authorized {
-            Permission.openAlertSettingPage(for: Permission.Kind.camera)
-        }
+@objc private func askCameraPermission() {
+    if Permission.camera.status != .authorized {
+        Permission.openAlertSettingPage(for: Permission.Kind.camera)
     }
+}
 ```
