@@ -1,6 +1,6 @@
-# PermissionsKit 
+# PermissionsPackage
 
-Universal API for request permission and get its statuses — available `.authorized`, `.denied` & `.notDetermined`.
+API для запросов разрешений и получения статусов на устройстве — доступные `.authorized`, `.denied` & `.notDetermined`.
 
 <p float="left">
     <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/camera.png" width="38">
