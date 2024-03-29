@@ -61,12 +61,12 @@ open class Permission {
         }
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Нужен доступ к настройкам", message: alertDescription, preferredStyle: .alert)
-            
-            alertController.addAction(UIAlertAction(title: "Отмена", style: .destructive, handler: nil))
-            
+                        
             alertController.addAction(UIAlertAction(title: "Перейти в настройки", style: .default, handler: { _ in
                 self.openSettingPage()
             }))
+            
+            alertController.addAction(UIAlertAction(title: "Отмена", style: .destructive, handler: nil))
             
             UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
