@@ -22,12 +22,7 @@ open class Permission {
         return kind.name
     }
     
-    
-    /**
-     PermissionsKit: Open settings page.
-     For most permissions its app page in settings app.
-     You can overide it if your permission need open custom page.
-     */
+
     @available(iOSApplicationExtension, unavailable)
     public static func openSettingPage() {
         DispatchQueue.main.async {
@@ -38,7 +33,28 @@ open class Permission {
         }
     }
     
-    // MARK: Must Ovveride
+    public static func openAlertSettingPage() {
+        DispatchQueue.main.async {
+            // Создаем контроллер алерта
+            let alertController = UIAlertController(title: "Нужен доступ к настройкам", message: "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?", preferredStyle: .alert)
+            
+            // Добавляем кнопку "Отмена" для отмены перехода
+            alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+            
+            // Добавляем кнопку "Перейти в настройки" для перехода
+            alertController.addAction(UIAlertAction(title: "Перейти в настройки", style: .default, handler: { _ in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                }
+            }))
+            
+            // Отображаем контроллер алерта
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    // MARK: Ovveride
     
     open var kind: Permission.Kind {
         preconditionFailure("This method must be overridden.")
@@ -56,7 +72,7 @@ open class Permission {
         return true
     }
     
-    // MARK: Internal
+    // MARK: Init
     
     public init() {}
     
