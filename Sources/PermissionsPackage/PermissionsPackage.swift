@@ -24,33 +24,60 @@ open class Permission {
     
 
     @available(iOSApplicationExtension, unavailable)
+    public static func openAlertSettingPage(for kind: Permission.Kind) {
+        let alertDescription: String = switch kind {
+        case .camera:
+            "Для проведения аудио и видео консультаций с врачом необходимо предоставить разрешение на использование камеры. Хотите перейти в настройки?"
+        case .notification:
+            "Для получения увдомлений и звонков о начале консультации необходимо предоставить разрешение на получение уведомлений. Хотите перейти в настройки?"
+        case .photoLibrary:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .microphone:
+            "Для проведения аудио и видео консультаций с врачом необходимо предоставить разрешение на использование микрофона. Хотите перейти в настройки?"
+        case .calendar( _):
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .contacts:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .reminders:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .speech:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .location( _):
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .motion:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .mediaLibrary:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .bluetooth:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .tracking:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .faceID:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .siri:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        case .health:
+            "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
+        }
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Нужен доступ к настройкам", message: alertDescription, preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Отмена", style: .destructive, handler: nil))
+            
+            alertController.addAction(UIAlertAction(title: "Перейти в настройки", style: .default, handler: { _ in
+                self.openSettingPage()
+            }))
+            
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     public static func openSettingPage() {
         DispatchQueue.main.async {
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
             if UIApplication.shared.canOpenURL(settingsUrl) {
                 UIApplication.shared.open(settingsUrl, completionHandler: nil)
             }
-        }
-    }
-    
-    public static func openAlertSettingPage() {
-        DispatchQueue.main.async {
-            // Создаем контроллер алерта
-            let alertController = UIAlertController(title: "Нужен доступ к настройкам", message: "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?", preferredStyle: .alert)
-            
-            // Добавляем кнопку "Отмена" для отмены перехода
-            alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-            
-            // Добавляем кнопку "Перейти в настройки" для перехода
-            alertController.addAction(UIAlertAction(title: "Перейти в настройки", style: .default, handler: { _ in
-                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-                if UIApplication.shared.canOpenURL(settingsUrl) {
-                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
-                }
-            }))
-            
-            // Отображаем контроллер алерта
-            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
     }
 
