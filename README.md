@@ -2,8 +2,8 @@
 
 Унифицированный API для запросов разрешений и получения статусов на устройстве.
 
-<p float="center">
-        <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/0d1d47c1-7d04-4b53-b741-bd99536f6274" width="40">
+<p float="left">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/0d1d47c1-7d04-4b53-b741-bd99536f6274" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/df6a957f-fe29-4022-944b-c2d7be628b92" width="40">
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="40">
@@ -11,29 +11,28 @@
     <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/617500b5-cd41-471f-b132-5072a089d4f2" width="40">
 </p>
 
-## Navigate
+## Содержание
 
-- [Permissions](#permissions)
-- [Installation](#installation)
+- [Доступные запросы](#permissions)
+- [Установка](#установка)
     - [Swift Package Manager](#swift-package-manager)
     - [Модульность](#модульность)
-- [Usage](#request-permission)
+- [Использование](#request-permission)
     - [Request Permission](#request-permission)
     - [Get Status Permission](#get-status-permission)
-- [Apps Using](#apps-using)
 
-### Permissions
+### Реализованные доступы
 
 | Icon |  Permission | Key for `Info.plist` | Get Status | Make Request |
 | :--: | :---------- | :------------------- | :--------: | :----------: |
-| <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/camera.png" width="38"> | Camera | NSCameraUsageDescription | ✅ | ✅ |
-| <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/contacts.png" width="38"> | Contacts | NSContactsUsageDescription | ✅ | ✅ |
-| <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/faceid.png" width="38"> | FaceID | NSFaceIDUsageDescription | ☑️ | ✅ |
-| <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/microphone.png" width="38"> | Microphone | NSMicrophoneUsageDescription | ✅ | ✅ |
-| <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/notifications.png" width="38"> | Notification | | ✅ | ✅ |
-| <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/photos.png" width="38"> | Photo Library | NSPhotoLibraryUsageDescription, NSPhotoLibraryAddUsageDescription | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="38"> | Camera | NSCameraUsageDescription | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/617500b5-cd41-471f-b132-5072a089d4f2" width="38"> | Contacts | NSContactsUsageDescription | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/0d1d47c1-7d04-4b53-b741-bd99536f6274" width="38"> | FaceID | NSFaceIDUsageDescription | ☑️ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/99a8791e-b13d-4d6d-ad96-b9c43d256463" width="38"> | Microphone | NSMicrophoneUsageDescription | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="38"> | Notification | | ✅ | ✅ |
+| <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/df6a957f-fe29-4022-944b-c2d7be628b92" width="38"> | Photo Library | NSPhotoLibraryUsageDescription, NSPhotoLibraryAddUsageDescription | ✅ | ✅ |
 
-## Installation
+## Установка
 
 Ready to use on iOS 11+. Supports iOS, tvOS. Working with `UIKit` and `SwiftUI`.
 
@@ -68,7 +67,7 @@ and choose valid targets.
 > [!WARNING]
 > Import only the permissions you really need.
 
-## Request Permission
+## Запрос разрешения на использование
 
 ```swift
 import PermissionsKit
@@ -79,7 +78,7 @@ Permission.notification.request {
 }
 ```
 
-## Get Status Permission
+## Проверить статус разрешения
 
 ```swift
 import PermissionsKit
