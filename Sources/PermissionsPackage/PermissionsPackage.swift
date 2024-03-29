@@ -3,48 +3,6 @@
 
 import Foundation
 import UIKit
-import Photos
-
-public extension Permission {
-    
-    static var photoLibrary: PhotoLibraryPermission {
-        return PhotoLibraryPermission()
-    }
-}
-
-public class PhotoLibraryPermission: Permission {
-    
-    open override var kind: Permission.Kind { .photoLibrary }
-    
-    open var fullAccessUsageDescriptionKey: String? {
-        "NSPhotoLibraryUsageDescription"
-    }
-    
-    open var addingOnlyUsageDescriptionKey: String? {
-        "NSPhotoLibraryAddUsageDescription"
-    }
-    
-    public override var status: Permission.Status {
-        switch PHPhotoLibrary.authorizationStatus() {
-        case .authorized: return .authorized
-        case .denied: return .denied
-        case .notDetermined: return .notDetermined
-        case .restricted: return .denied
-        case .limited: return .authorized
-        @unknown default: return .denied
-        }
-    }
-    
-    public override func request(completion: @escaping () -> Void) {
-        PHPhotoLibrary.requestAuthorization({
-            finished in
-            DispatchQueue.main.async {
-                completion()
-            }
-        })
-    }
-}
-
 
 open class Permission {
     
@@ -91,6 +49,10 @@ open class Permission {
     }
     
     open func request(completion: @escaping ()->Void) {
+        preconditionFailure("This method must be overridden.")
+    }
+    
+    open func request(completion: ((Bool) -> Void)? = nil) {
         preconditionFailure("This method must be overridden.")
     }
     

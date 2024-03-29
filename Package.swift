@@ -37,6 +37,10 @@ let package = Package(
             name: "ContactsPackage",
             targets: ["ContactsPackage"]
         ),
+        .library(
+            name: "PhotoLibraryPackage",
+            targets: ["PhotoLibraryPackage"]
+        ),
     ],
     
     
@@ -92,6 +96,15 @@ let package = Package(
             swiftSettings: [
                 .define("PERMISSIONSPACKAGE_SPM"),
                 .define("PERMISSIONSPACKAGE_CONTACTS")
+            ]
+        ),
+        .target(
+            name: "PhotoLibraryPackage",
+            dependencies: [.target(name: "PermissionsPackage")],
+            path: "Sources/PhotoLibraryPermission",
+            swiftSettings: [
+                .define("PERMISSIONSPACKAGE_SPM"),
+                .define("PERMISSIONSPACKAGE_PHOTOLIBRARY")
             ]
         )
     ]
