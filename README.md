@@ -1,25 +1,13 @@
 # PermissionsPackage
 
 Унифицированный API для запросов разрешений и получения статусов на устройстве — доступные `.authorized`, `.denied` & `.notDetermined`.
-    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/f78124ea-9808-46c1-9ec7-ad1ddfd12837" width="38">
 
 <p float="left">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/camera.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/photos.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/notifications.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/location.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/microphone.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/calendar.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/contacts.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/reminders.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/motion.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/music.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/speech.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/bluetooth.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/health.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/tracking.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/faceid.png" width="38">
-    <img src="https://cdn.sparrowcode.io/github/permissionskit/icons/siri.png" width="38">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/63916552-441c-49dd-8295-f11a4dd85770" width="40">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/22ffc9c9-0416-4c12-922e-cce70d92fa55" width="40">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/7aa48fa0-4529-458f-a187-fb9107bbf9ef" width="40">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/99a8791e-b13d-4d6d-ad96-b9c43d256463" width="40">
+    <img src="https://github.com/StasonLV/PermissionsPackage/assets/98527464/617500b5-cd41-471f-b132-5072a089d4f2" width="40">
 </p>
 
 ## Navigate
