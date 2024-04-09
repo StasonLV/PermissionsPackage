@@ -31,7 +31,7 @@ open class Permission {
         case .microphone:
             "Для проведения аудио и видео консультаций с врачом необходимо предоставить доступ к микрофону."
         case .notification:
-            "Для получения увдомлений и звонков о начале консультации необходимо предоставить доступ на получение уведомлений."
+            "Для получения уведомлений и звонков о начале консультации необходимо предоставить доступ на получение уведомлений."
         case .photoLibrary:
             "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
         case .calendar( _):
@@ -98,16 +98,12 @@ open class Permission {
     public static func checkMultiplePermissions(for permissions: [Permission], completion: ((Bool, Permission.Kind) -> Void)? = nil) {
         for permission in permissions {
             switch permission.status {
-            case .denied, .notDetermined:
-//                permission.request { granted in
-//                    if !granted {
-                        completion?(false, permission.kind)
-                        self.openAlertSettingPage(for: permission.kind)
-//                    }
-//                }
+            case .denied:
+                completion?(false, permission.kind)
+                self.openAlertSettingPage(for: permission.kind)
             case .authorized:
                 completion?(true, permission.kind)
-            case .notSupported:
+            case .notDetermined, .notSupported:
                 return
             }
         }
