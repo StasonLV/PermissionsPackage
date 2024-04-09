@@ -47,15 +47,6 @@ public class NotificationPermission: Permission {
         return notificationSettings?.authorizationStatus
     }
     
-//    public override func request(completion: @escaping () -> Void) {
-//        let center = UNUserNotificationCenter.current()
-//        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
-//            DispatchQueue.main.async {
-//                completion()
-//            }
-//        }
-//    }
-    
     public override func request(completion: ((Bool) -> Void)? = nil) {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options:[.badge, .alert, .sound]) { finished, error in
