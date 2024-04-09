@@ -76,7 +76,7 @@ open class Permission {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: alertTitle, message: alertDescription, preferredStyle: .alert)
                         
-            alertController.addAction(UIAlertAction(title: "Предоставить доступ в настройках", style: .default, handler: { _ in
+            alertController.addAction(UIAlertAction(title: "Предоставить доступ", style: .default, handler: { _ in
                 self.openSettingPage()
             }))
             
