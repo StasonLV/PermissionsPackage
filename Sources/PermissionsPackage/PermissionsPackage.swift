@@ -27,11 +27,11 @@ open class Permission {
     public static func openAlertSettingPage(for kind: Permission.Kind) {
         let alertDescription: String = switch kind {
         case .camera:
-            NSLocalizedString("CameraSettingsAlert", comment: "")
+            "Для проведения аудио и видео консультаций с врачом необходимо предоставить доступ к камере."
         case .microphone:
-            NSLocalizedString("MicrophoneSettingsAlert", comment: "")
+            "Для проведения аудио и видео консультаций с врачом необходимо предоставить доступ к микрофону."
         case .notification:
-            NSLocalizedString("NotificationsSettingsAlert", comment: "")
+            "Для получения уведомлений и звонков о начале консультации необходимо предоставить доступ на получение уведомлений."
         case .photoLibrary:
             "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
         case .calendar( _):
