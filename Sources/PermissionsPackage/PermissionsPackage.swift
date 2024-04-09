@@ -107,7 +107,6 @@ open class Permission {
                 }
             case .authorized:
                 completion?(true)
-                return
             case .notSupported:
                 return
             }
