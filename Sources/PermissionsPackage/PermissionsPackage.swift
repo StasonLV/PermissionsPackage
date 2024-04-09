@@ -27,11 +27,11 @@ open class Permission {
     public static func openAlertSettingPage(for kind: Permission.Kind) {
         let alertDescription: String = switch kind {
         case .camera:
-            "Для проведения аудио и видео консультаций с врачом необходимо предоставить разрешение на использование камеры"
+            "Для проведения аудио и видео консультаций с врачом необходимо предоставить доступ к камере."
         case .microphone:
-            "Для проведения аудио и видео консультаций с врачом необходимо предоставить разрешение на использование микрофона"
+            "Для проведения аудио и видео консультаций с врачом необходимо предоставить доступ к микрофону."
         case .notification:
-            "Для получения увдомлений и звонков о начале консультации необходимо предоставить разрешение на получение уведомлений. Хотите перейти в настройки?"
+            "Для получения увдомлений и звонков о начале консультации необходимо предоставить доступ на получение уведомлений."
         case .photoLibrary:
             "Для использования этой функции вы должны предоставить разрешение. Хотите перейти в настройки?"
         case .calendar( _):
@@ -76,7 +76,7 @@ open class Permission {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: alertTitle, message: alertDescription, preferredStyle: .alert)
                         
-            alertController.addAction(UIAlertAction(title: "Перейти к настройкам", style: .default, handler: { _ in
+            alertController.addAction(UIAlertAction(title: "Предоставить доступ в настройках", style: .default, handler: { _ in
                 self.openSettingPage()
             }))
             
