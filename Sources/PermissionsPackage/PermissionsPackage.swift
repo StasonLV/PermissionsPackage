@@ -99,12 +99,12 @@ open class Permission {
         for permission in permissions {
             switch permission.status {
             case .denied, .notDetermined:
-                permission.request { granted in
-                    if !granted {
+//                permission.request { granted in
+//                    if !granted {
                         completion?(false, permission.kind)
                         self.openAlertSettingPage(for: permission.kind)
-                    }
-                }
+//                    }
+//                }
             case .authorized:
                 completion?(true, permission.kind)
             case .notSupported:
