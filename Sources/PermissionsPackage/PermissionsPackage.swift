@@ -94,6 +94,24 @@ open class Permission {
             }
         }
     }
+    
+    public static func checkMultiplePermissions(for permissions: [Permission], completion: @escaping () -> Void) {
+        for permission in permissions {
+            switch permission.status {
+            case .denied, .notDetermined:
+                permission.request { granted in
+                    if !granted {
+                        completion()
+                        self.openAlertSettingPage(for: permission.kind)
+                    }
+                }
+            case .authorized:
+                return
+            case .notSupported:
+                return
+            }
+        }
+    }
 
     // MARK: Ovveride
     
