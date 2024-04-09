@@ -101,6 +101,7 @@ open class Permission {
             case .denied:
                 completion?(false, permission.kind)
                 self.openAlertSettingPage(for: permission.kind)
+                return
             case .authorized:
                 completion?(true, permission.kind)
             case .notDetermined, .notSupported:
