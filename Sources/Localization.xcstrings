@@ -1,0 +1,57 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CameraSettingsAlert" : {
+      "comment" : "Алерт при повторном обращении к камере.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To conduct audio and video consultations with a doctor, it is necessary to grant access to the camera."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для проведения аудио и видео консультаций с врачом необходимо предоставить доступ к камере."
+          }
+        }
+      }
+    },
+    "MicrophoneSettingsAlert" : {
+      "comment" : "Алерт при повторном обращении к микрофону.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To conduct audio and video consultations with a doctor, it is necessary to grant access to the microphone."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для проведения аудио и видео консультаций с врачом необходимо предоставить доступ к микрофону."
+          }
+        }
+      }
+    },
+    "NotificationsSettingsAlert" : {
+      "comment" : "Алерт при повторном обращении к нотификациям.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To receive notifications and calls about the start of a consultation, it is necessary to grant access to receive notifications."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для получения уведомлений и звонков о начале консультации необходимо предоставить доступ на получение уведомлений."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
