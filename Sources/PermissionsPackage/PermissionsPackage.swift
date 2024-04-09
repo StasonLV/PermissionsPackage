@@ -95,17 +95,18 @@ open class Permission {
         }
     }
     
-    public static func checkMultiplePermissions(for permissions: [Permission], completion: @escaping () -> Void) {
+    public static func checkMultiplePermissions(for permissions: [Permission], completion: ((Bool) -> Void)? = nil) {
         for permission in permissions {
             switch permission.status {
             case .denied, .notDetermined:
                 permission.request { granted in
                     if !granted {
-                        completion()
+                        completion?(false)
                         self.openAlertSettingPage(for: permission.kind)
                     }
                 }
             case .authorized:
+                completion?(true)
                 return
             case .notSupported:
                 return
