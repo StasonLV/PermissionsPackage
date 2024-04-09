@@ -33,7 +33,7 @@ public class MicPermission: Permission {
         }
     }
     
-    public func request(completion: ((Bool) -> Void)? = nil) {
+    public override func request(completion: ((Bool) -> Void)? = nil) {
         AVAudioSession.sharedInstance().requestRecordPermission { finished in
             if let completion = completion {
                 DispatchQueue.main.async {

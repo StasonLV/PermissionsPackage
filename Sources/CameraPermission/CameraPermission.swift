@@ -34,7 +34,7 @@ public class CameraPermission: Permission {
         }
     }
     
-    public func request(completion: ((Bool) -> Void)? = nil) {
+    public override func request(completion: ((Bool) -> Void)? = nil) {
         AVCaptureDevice.requestAccess(for: .video) { finished in
             if let completion = completion {
                 DispatchQueue.main.async {
